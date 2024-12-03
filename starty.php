@@ -7,9 +7,9 @@ if (mysqli_connect_errno())
     exit("Blad polaczenia z serwerem MySQL: ".mysqli_connect_error());
 }
 
-$zapytanie1 = mysqli_query($polaczenie,'SELECT starty.data_startu AS "data", rakiety.nazwa_rakiety AS "rakieta", miejsca.nazwa_miejsca AS "miejsce", starty.status_startu AS "status" FROM starty JOIN rakiety ON starty.id_rakiety = rakiety.id_rakiety JOIN miejsca ON starty.id_miejsca = miejsca.id_miejsca ORDER BY starty.data_startu DESC LIMIT 5;');
+$zapytanie2 = mysqli_query($polaczenie,'SELECT starty.data_startu AS "data", rakiety.nazwa_rakiety AS "rakieta", miejsca.nazwa_miejsca AS "miejsce", starty.status_startu AS "status" FROM starty JOIN rakiety ON starty.id_rakiety = rakiety.id_rakiety JOIN miejsca ON starty.id_miejsca = miejsca.id_miejsca ORDER BY starty.data_startu DESC;');
 
- if(!$zapytanie1)
+ if(!$zapytanie2)
     {
         mysqli_close($polaczenie);
         echo "Błąd <br>";
@@ -29,8 +29,8 @@ $zapytanie1 = mysqli_query($polaczenie,'SELECT starty.data_startu AS "data", rak
     <body>
         <h1>Misje orbitalne</h1>
         <hr>
-        <h3>Ostatnie starty:</h3>
-		<div class="ostatnie">
+        <h3>Wszystkie starty:</h3>
+		<div class="wszystkie">
 		<?php
 		echo "<table>";
 		echo "<tr>";
@@ -39,13 +39,13 @@ $zapytanie1 = mysqli_query($polaczenie,'SELECT starty.data_startu AS "data", rak
 			echo "<td>" . "<b>Miejsce</b>" . "</td>";
 			echo "<td>" . "<b>Status</b>" . "</td>";
 			echo "</tr>";
-		while($wiersze1=mysqli_fetch_array($zapytanie1))
+		while($wiersze2=mysqli_fetch_array($zapytanie2))
         {
             echo "<tr>";
-			echo "<td>" . "$wiersze1[data]" . "</td>";
-			echo "<td>" . "$wiersze1[rakieta]" . "</td>";
-			echo "<td>" . "$wiersze1[miejsce]" . "</td>";
-			echo "<td>" . "$wiersze1[status]" . "</td>";
+			echo "<td>" . "$wiersze2[data]" . "</td>";
+			echo "<td>" . "$wiersze2[rakieta]" . "</td>";
+			echo "<td>" . "$wiersze2[miejsce]" . "</td>";
+			echo "<td>" . "$wiersze2[status]" . "</td>";
 			echo "</tr>";
 			
         }
@@ -53,9 +53,7 @@ $zapytanie1 = mysqli_query($polaczenie,'SELECT starty.data_startu AS "data", rak
 		?>
 		</div>
         <hr>
-        <a href="starty.php">Pełna lista startów</a>
-        <a href="rakiety.php">Lista rakiet</a>
-		<a href="ladunek.php">Lista ładunków</a>
+        <a href="index.php">Powrót do strony głównej</a>
 
         <hr>
         <a href="starty_d.php">Dodaj nowy start</a><br>

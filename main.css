@@ -1,7 +1,78 @@
 body {
 	text-align: center;
+	background-color: #e6e6e6;
+	color: #0e3952;
+	padding-left: 12%;
+	padding-right: 12%;
+	font-family: "Gill Sans", sans-serif;
 }
 
 .ostatnie {
-	text-align: center;
+	padding-left: 35%;
+	background-color: #f0eded;
+	margin-bottom: 16px;
+}
+
+.wszystkie {
+	padding-left: 32%;
+	background-color: #f0eded;
+	margin-bottom: 16px;
+}
+
+.rakiety {
+	padding-left: 32%;
+	background-color: #f0eded;
+	margin-bottom: 16px;
+}
+
+td, tr {
+	padding: 10px;
+	border: 1px solid #0e3952;
+}
+
+table {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.ladunki {
+	padding-left: 34%;
+	background-color: #f0eded;
+	margin-bottom: 16px;
+}
+
+footer {
+	margin-top: 30px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background-color: #0e3952;
+	color: white;
+}
+
+form {
+	background-color: #f0eded;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+a{
+	text-decoration: none;
+	background-color: #808080;
+	color: white;
+	padding: 8px;
+	margin: 10px;
+}
+
+hr {
+	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#dodaj {
+	background-color: #0e3952;
+	color: white;
+	padding: 5px;
+	padding-left: 18px;
+	padding-right: 18px;
 }
